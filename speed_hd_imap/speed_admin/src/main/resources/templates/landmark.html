@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="/static/js/lib/jquery-2.1.1.min.js"></script>
+<script>
+    $(function () {
+            $.ajax({
+                type:get,
+                url:'${pageContext.request.contextPath}/landmark/selectAll',
+                dataType:json,
+                success:function (resultDate) {
+                        $(resultDate).each(function (index, item) {
+                            var tr = " <tr align=\"center\" bgcolor=\"#FAFAF1\" height=\"22\" id=\"tr2\">\n" +
+                                "                 <td width=\"4%\">+item.+</td>\n" +
+                                "                 <td width=\"6%\">标题</td>\n" +
+                                "                 <td width=\"10%\">完成否</td>\n" +
+                                "                 <td width=\"10%\">选择文件</td>\n" +
+                                "                 <td width=\"8%\">描述</td>\n" +
+                                "                 <td width=\"8%\">完成时间</td>\n" +
+                                "                 <td width=\"8%\">添加时间</td>\n" +
+                                "                 <td width=\"8%\">完成进度</td>\n" +
+                                "                 <td width=\"10%\">操作</td>\n" +
+                                "             </tr>"
+                        })
+                }
+            })
+    })
+</script>
+<body>
+     <from>
+         <table id="infotb" width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center"
+                style="margin-top:8px">
+             <tr bgcolor="#E7E7E7">
+                 <td height="24" colspan="12" background="skin/images/tbg.gif">&nbsp;需求列表&nbsp;</td>
+             </tr>
+             <tr align="center" bgcolor="#FAFAF1" height="22" id="tr2">
+                 <td width="4%">项目名称</td>
+                 <td width="6%">标题</td>
+                 <td width="10%">完成否</td>
+                 <td width="10%">选择文件</td>
+                 <td width="8%">描述</td>
+                 <td width="8%">完成时间</td>
+                 <td width="8%">添加时间</td>
+                 <td width="8%">完成进度</td>
+                 <td width="10%">操作</td>
+             </tr>
+
+             <tr bgcolor="#FAFAF1">
+                 <td height="28" colspan="12">
+                     &nbsp;
+                     <a href="javascript:zheng()" class="coolbg">全选</a>
+                     <a href="javascript:fan()" class="coolbg">反选</a>
+                     <a onclick="batchDelete()" class="coolbg">&nbsp;删除&nbsp;</a>
+                     <a href="" class="coolbg">&nbsp;导出Excel&nbsp;</a>
+                 </td>
+             </tr>
+             <tr align="right" bgcolor="#EEF4EA">
+                 <td height="36" colspan="12" align="center"  id="mm"><!--翻页代码 --></td>
+             </tr>
+         </table>
+     </from>
+</body>
+</html>

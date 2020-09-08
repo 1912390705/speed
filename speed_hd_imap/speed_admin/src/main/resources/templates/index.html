@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>高精地图综合管理平台</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/google.css" th:href="@{/css/google.css}">
+    <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.css" th:href="@{/js/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" href="/css/ol.css" th:href="@{/css/ol.css}">
+    <link rel="stylesheet" href="/css/app.css" th:href="@{/css/app.css}">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- 引入 初始化函数 -->
+    <!--<script type="text/javascript" data-main="../statics/js/scripts/main.js"
+            src="../statics/js/require-2.3.5.js"></script>-->
+</head>
+<body id="mainBody" scroll="no" style="overflow-y:hidden;">
+<nav class="navbar" role="navigation">
+    <div id="lftop" class="logocolor" style="float:left;width:280px;">
+        <div class="logoArea">
+            <img src="/images/logo.png" width="250px" height="50px">
+        </div>
+    </div>
+    <div class="righttop" style="position:absolute;left:280px;width:80%;" class="topRight">
+        <div>
+            <script type="text/javascript">
+                <!--
+                function topMenuBgIframeOnload(_this) {
+                    _this.contentWindow.document.body.style.background = 'transparent';
+                    _this.contentWindow.document.body.style.border = 'none';
+                }
+
+                //-->
+            </script>
+            <a class="icon-menu" onclick="on_iconMenu_clicked()"></a>
+        </div>
+        <div class="topCenter" align="center" style="position:relative;z-index:1;float:left" id="topCenter">
+            <div id="main-nav" class="main-nav" style="">
+                <a class="selected" onclick="on_selected_clicked()">项目概览</a>
+                <a class="noSelected" onclick="on_noSelected_clicked()">项目管理</a>
+                <a class="noSelected" onclick="on_noSelected_clicked()">流程</a>
+                <a class="noSelected" onclick="on_noSelected_clicked()">人员管理</a>
+                <a class="noSelected" onclick="on_noSelected_clicked()">控制面板</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <form action="/manager/login" method="post" class="loginIn">
+                <label>用户名:</label>
+                <input type="text" name="user_Name" size="10" class="tl-user-input" placeholder="请输入账号"/>
+                <label>密码:</label>
+                <input type="password" name="password" value="******" size="6" class="tl-user-input" placeholder="请输入密码"/>
+                <button type="submit" class="ant-btn ant-btn-red" ><!--onclick="on_button_submit()"-->
+                    <i class="loin-pic"></i>
+                    <span class="loin-in">登录</span>
+                </button>
+            </form>
+            <!--<div class="loginOut">
+                <div class="loginInfo">
+                    <span class="loin-in" style="top: 10px">登录身份</span>
+                    <span class="loin-in" style="top: 10px">温四林</span>
+                </div>
+                <div class="option" style="width: 60px;">
+                    <button type="submit" class = "ant-btn ant-btn-red" onclick="on_loginIn_clicked()">
+                        <i class="loin-pic"></i>
+                        <span class="loin-in">登录</span>
+                    </button>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</nav>
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/bootstrap/js/bootstrap.js"></script>
+<script src="/js/scripts/ol.js"></script>
+<script src="/js/scripts/app.js"></script>
+<script th:inline="javascript">
+    $(document).ready(function () {
+        if (typeof window.init != "undefined") {
+            init();
+        }
+    });
+</script>
+</body>
+</html>

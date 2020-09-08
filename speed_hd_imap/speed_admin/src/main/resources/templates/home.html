@@ -1,0 +1,188 @@
+ <html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>高精地图综合管理平台</title>
+    <link type="text/css" href="/css/style.css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/scripts/laymain.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/scripts/common.js"></script>
+    <script type="text/javascript" src="/js/echarts/echarts.js"></script>
+</head>
+<body class="mainbody">
+<form method="post" action="./home.aspx" id="form1">
+    <div class="aspNetHidden">
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+               value="VdCEUqh6Fr65WQUDbJT/E0dvyCHjbBKfh4xKz0Q5sUuMZlVHyC81yybvF5f1JejGDJmAw5OnPvCxHOuSwWT71V+nXsa7SK9EhsuUcYPD9/7nqeeWbBmj+L12aVpY4f+Il+i8KpAo7H46gXHNWlJ90zsdKiMUrQCjKJOAr9+hDSGLTQe60z0f6gGo74wr9CTFXPcdxmzKNldzvRnco489ww==">
+    </div>
+
+    <div class="aspNetHidden">
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="1AD27477">
+    </div>
+    <!--导航栏-->
+    <div class="location">
+        <a href="javascript:history.back(-1);" class="back"><i></i><span>返回上一页</span></a>
+        <a class="home"><i></i><span>首页</span></a>
+        <i class="arrow"></i>
+        <span>管理中心</span>
+    </div>
+    <!--/导航栏-->
+
+    <!--内容-->
+    <div class="line10"></div>
+    <div class="nlist-1">
+        <ul>
+            <li>本次登录IP：192.168.6.238</li>
+            <li>上次登录IP：192.168.6.238</li>
+            <li>上次登录时间：2020/8/21 11:29:07</li>
+        </ul>
+    </div>
+    <div class="line10"></div>
+
+    <div class="nlist-2">
+        <h3><i></i>系统信息</h3>
+        <ul>
+            <li>服务器名称：DESKTOP-3SQV7DC</li>
+            <li>服务器IP：192.168.6.48</li>
+            <li>NET框架版本：4.0.30319.42000</li>
+            <li>操作系统：Microsoft Windows NT 10.0.18362.0</li>
+            <li>IIS环境：Microsoft-IIS/10.0</li>
+            <li>服务器端口：8081</li>
+            <li>系统版本：V1.0.0</li>
+            <li>数据库名称：speedproject_weilai2</li>
+            <li>数据库服务器：localhost</li>
+            <li style="width: 100%;">目录物理路径：D:\项目管理系统\weilaiwangluo_projecy_manager2\</li>
+        </ul>
+    </div>
+    <div class="line20"></div>
+
+
+    <div class="nlist-3" id="hardwareYb"
+         style="height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"
+         _echarts_instance_="ec_1598499877376">
+        <div style="position: relative; overflow: hidden; width: 350px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;">
+            <canvas width="350" height="300" data-zr-dom-id="zr_0"
+                    style="position: absolute; left: 0px; top: 0px; width: 350px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+        </div>
+        <div></div>
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var chartYb = echarts.init(document.getElementById('hardwareYb'));
+        var optionYb = {
+            tooltip: {
+                formatter: "{a} <br/>{b} : {c}%"
+            },
+            series: [
+                {
+                    name: '内存使用率',
+                    type: 'gauge',
+                    detail: {formatter: '{value}%'},
+                    data: [{value: 0, name: '内存'}]
+                }
+            ]
+        };
+        chartYb.setOption(optionYb, true);
+        setInterval(function () {
+            optionYb.series[0].data[0].value = ((Math.random() * 15) + 40).toFixed(0) - 0;
+            chartYb.setOption(optionYb, true);
+        }, 4000);
+
+    </script>
+
+    <div class="nlist-4" id="hardwareQx"
+         style="height: 300px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"
+         _echarts_instance_="ec_1598499877377">
+        <div style="position: relative; overflow: hidden; width: 1538px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;">
+            <canvas width="1538" height="300" data-zr-dom-id="zr_0"
+                    style="position: absolute; left: 0px; top: 0px; width: 1538px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+        </div>
+        <div></div>
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var chartQx = echarts.init(document.getElementById('hardwareQx'));
+
+        function randomData() {
+            now = new Date(+now + oneDay);
+            value = value + Math.random() * 21 - 10;
+            return {
+                name: now.toString(),
+                value: [
+                    [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+                    Math.round(value)
+                ]
+            }
+        }
+
+        var data = [];
+        var now = +new Date(1997, 9, 3);
+        var oneDay = 24 * 3600 * 1000;
+        var value = Math.random() * 1000;
+        for (var i = 0; i < 1000; i++) {
+            data.push(randomData());
+        }
+
+        var optionQx = {
+            title: {
+                text: 'CPU利用率/网络吞吐'
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    params = params[0];
+                    var date = new Date(params.name);
+                    return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+                },
+                axisPointer: {
+                    animation: false
+                }
+            },
+            xAxis: {
+                type: 'time',
+                splitLine: {
+                    show: false
+                }
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%'],
+                splitLine: {
+                    show: false
+                }
+            },
+            series: [{
+                name: '模拟数据',
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data: data
+            }]
+        };
+        chartQx.setOption(optionQx, true);
+        setInterval(function () {
+            for (var i = 0; i < 5; i++) {
+                data.shift();
+                data.push(randomData());
+            }
+
+            chartQx.setOption({
+                series: [{
+                    data: data
+                }]
+            });
+        }, 1000);
+    </script>
+
+
+    <!--/内容-->
+
+</form>
+
+
+</body>
+</html>

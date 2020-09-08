@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gjdt.modules.manager.dao.RoleMapper">
+    <resultMap id="RoleResultMap" type="com.gjdt.modules.entity.Role">
+
+        <result column="rid" jdbcType="INTEGER" property="id" />
+        <result column="role_name" jdbcType="VARCHAR" property="role_Name" />
+        <result column="role_type" jdbcType="INTEGER" property="role_type" />
+
+    </resultMap>
+    <select id="selectRole" resultMap="RoleResultMap">
+        select rid,role_name,role_type from role where rid=#{id}
+    </select>
+
+    <select id="selectAllRole" resultMap="RoleResultMap">
+        select rid,role_name,role_type from role
+    </select>
+
+</mapper>

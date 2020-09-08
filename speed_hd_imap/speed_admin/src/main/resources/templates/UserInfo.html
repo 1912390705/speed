@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>
+        高精地图综合管理平台
+    </title>
+    <link type="text/css" href="../css/style.css" rel="stylesheet"/>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/edwGrid.js"></script>
+    <script type="text/javascript" src="../js/scripts/laypage.js"></script>
+    <script type="text/javascript" src="../js/scripts/common.js"></script>
+    <link href="../css/layui.css" rel="stylesheet"/>
+
+</head>
+<body class="mainbody">
+<!--
+< method="post" action="/manager/selectDepartment" id="form1">
+-->
+<div class="aspNetHidden">
+    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+           value="zwJLQl5EUjEUcsG55AIRYWV1pte/doDh9wF1IbG3k42B+c0rxgtNSfnqLA9wsc6ZytxRunk9A6ineiVBMLMhdtmUQR0AQjdE5DCjovhn55S+x2awmK+Jq9Ax5iCFqqVVzHIvJn5/MG8Tl4jb437DCvgkUUS/ot8Lx5D39F+zUwOrzzeWGTQ7Wx0NKqz+T9DSuQs+SfzHwqlUnCICx7VpnGKCHpWw7Pbg2SdcJ3BTfgtEnOzTMTRFy6uS7r57kMntHfiURwesiTlC5zQgXThrW7s5FL4Z6Cbi7h/q1TLr3HLHZ+otLPwiUw/XFHIHm8S3X+hfd070KbF0IfVCac/A5Qj3N9CmjLYMs8xV6QbtZmNiLx4IK+rcE7wcfcKZj+X+TKUBhWA9HIkx7KTPFuiXCIvDykh06rroTHK/DX+zzVa+kkQSj1FjBYLRvjRYpeqC4fBcBCav66W+FkNf/qkBo4GNFYga+kQwFRbinKsuOGzD04RoW7PC0FZPco7v+8b9twvaHCBEVknYIDRD8vomKk88Sq0zOqbkHonfmt8SXI5/k5s0v/u43mUGMDfzSoCob07J7miWPoFJR5px3aAA16JMOFlPOQxiLdgSYOOn/XbJWNqJPt2Y8S5oc5+UaPuQUNCXftrA6c4vjIKZb7v3flk5Sz337LCPPtxePTd+8JjD89dp/PUmRvIlCxusaXA8iGuyPbcM4y59P3AYctcyEhOTw0mHcLY7xRg3jE0Iig5KkdsuJlspPgr118UvvOQ3iSq/C2sMRmGWcIqhehF07FgmZY2YOf2d99OpWCsj0PRHjWUwK7dz2Sn1Kg5LNQta92u9LNdAke4g0ExCsS6Yr7TbluZm8qNCGjTrlP2sOJqpbAEG5rsR/C1TFEa5XCCVzAmPinz9ydNtK9Ktr1ButhFMW/tm28iORFHrImpM1A41GJerm9fFxK5muSp8T5ncCKuY4DRN88xA1z9ipoa+5F1S8BmICwDeLIW8sVCxbY+JEh1UNvPqUMIy8jNX/RICxhPuMd7Ta1asHWa2FyFn8LsrTA4QIH1XU4C7gYe+ofYuA+BJXGPi1Tcgg/RHJQuXyN6tpuhbILYsPBfLfMwL2Q=="/>
+</div>
+
+<div class="aspNetHidden">
+
+    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C4DF13F6"/>
+    <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+           value="a28z2LAKtNHXy9hBf/R4VPa1ZBtS9k/ZymxdV7JYqU3DLnFkKKAjC8tbQzYnrzp3I8MvlYG6n2LhspmbULutX20H1r2h/b2dqkzhMH2begeFj5Pdwmr7jI8vbQzZBW+ZNzC4gvGtMQWXQWtCsZ234otHVs/CW0UMQ44hZHrxDkjfUgsWQ0e4PslTe+vD9gq/3b2lCloXqW9N1T5jxVhNCtP8HVeyWJYgj3urZygeIfi3S7ykEBkkaBLRXIKvM+uHZRfo8woX3HcfZnoG7eF1ZPC0qk2bOkdCu4/iD1yElkyb07BxGpenv71tsXT7dsECqzHSJEv/jN+mObh3NwtZ1IWgyztWWJX4GW0W9/MO7TpdqAyxW7ax44IBzF3nJEPAq9hmQHqaHBsE0BTQN4DR2f7PYhatUAmIOjZywRNahvePUReg/lpjbXRcYKTXRU2akLGOh25FdgGv0IRISBrTAI3f+g0pl5vZT6Y2Bt1DLbOCyPeJwHCcHKcKFLdtVB/7Upik8to1LhrZ2UIGhRoEAYp4pM0XMXpWCHlnr7ONlJcmLjCKKtx9UQEZOnMn44aLOZhtPTVoWagM52IiRoSxt9/AOvCNwVrVM4bRPFNOWz7zWzl2gR9Cr1Og/QllibNSABjSoZVMZuvZRZ7+RsOIoFcFvvw5LqJFNZVGktQripwuz/CvomcygzJL4CFUplQmp7SablMuPsLdU5kL4ktjTRWic2ck5ZBccocBVhbUsDi+VZULJ8drqee1NnnvH/0Q"/>
+</div>
+<!--导航栏-->
+<div class="location">
+    <a href="javascript:history.back(-1);" class="back"><i></i><span>返回上一页</span></a>
+    <a href="/admin/home.aspx" class="home" onclick="top.linkMenuTree(false, '')"><i></i><span>首页</span></a>
+    <i class="arrow"></i>
+    <span>管理员列表</span>
+</div>
+<!--/导航栏-->
+
+<!--工具栏-->
+<div id="floatHead" class="toolbar-wrap">
+    <div class="toolbar">
+        <div class="box-wrap">
+            <a class="menu-btn"></a>
+            <div class="l-list">
+                <ul class="icon-list">
+                    <li><a class="add" href="form.aspx?action=Add"><i></i><span>新增</span></a></li>
+                    <li><a class="edit" href="javascript:;" onclick="edit()"><i></i><span>修改</span></a></li>
+                    <li><a class="msg" href="javascript:;" onclick="log()"><i></i><span>查看日志</span></a></li>
+                    <li><a class="dele" href="javascript:;" onclick="dele()"><i></i><span>删除</span></a></li>
+                </ul>
+                <div class="menu-list">
+                    <div style="float: left; line-height: 32px;">&nbsp;&nbsp;选择部门：</div>
+                    <!--<div id="departSelect" class="layui-input-block">
+                        <select name="ddlOrganizeId" id="ddlOrganizeId" class="ddlOrganizeId"
+                                data-format="&#39;deptId&#39;:&#39;{0}&#39;"
+                                onchange="BindGridView()" datatype="*" errormsg="请选择所在部门" sucmsg=" ">
+                            <option>请选择</option>
+                        </select>
+                    </div>-->
+                    <div id="departSelect" style="float: left;" class="rule-single-select">
+                        <select name="ddlOrganizeId" id="ddlOrganizeId" class="ddlOrganizeId"
+                                data-format="&#39;deptId&#39;:&#39;{0}&#39;"
+                                onchange="BindGridView()" datatype="*" errormsg="请选择所在部门" sucmsg=" ">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="float: left; line-height: 32px;">&nbsp;&nbsp;账号状态：</div>
+                <div style="float: left;" class="rule-single-select">
+                    <select name="IsInOutProject" id="IsInOutProject"
+                            data-format="&#39;account_status&#39;:&#39;{0}&#39;" onchange="BindGridView()"
+                            datatype="*" errormsg="请选择" sucmsg=" ">
+                        <option value="请选择">请选择</option>
+                        <option value="0">正常</option>
+                        <option value="1">禁用</option>
+                    </select>
+                </div>
+            </div>
+            <div class="r-list">
+                <input type="text" class="keyword" data-format="'keyword':'{0}'" value=""/>
+                <input type="button" class="btn-search" id="search_btn" onclick="BindGridView()" value="查询"/>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/工具栏-->
+
+<!--数据表格-->
+<div id="gridview" class="gridview">
+</div>
+<script type="text/javascript" src="./js/layui/layui.js"></script>
+<!--/数据表格-->
+<script th:inline="javascript">
+    function trimRight(s){
+        if(s == null) return "";
+        var whitespace = new String(" \t\n\r");
+        var str = new String(s);
+        if (whitespace.indexOf(str.charAt(str.length-1)) != -1){
+            var i = str.length - 1;
+            while (i >= 0 && whitespace.indexOf(str.charAt(i)) != -1){
+                i--;
+            }
+            str = str.substring(0, i+1);
+        }
+        return str;
+    };
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/manager/selectDepartment",
+            data: {},
+            cache: false,
+            async: false,
+            success: function (result) {
+                var items = result;
+                if (items) {
+                    var options = "<li value=\"0\">请选择</li>";
+                    //var option1 = "<li value=\"0\">请选择</li>";
+                    $(items).each(function (index) {
+                        var board = items[index];
+                        //option1 += "<li>" + trimRight(board.department_name) + "</li>\n";
+                        options += "<li value='" + board.id + "'>" + trimRight(board.department_name) + "</li>\n";
+                    });
+                    //console.log($('#ddlOrganizeId'));
+                    console.log(options);
+                  //  $("#departSelect .boxwrap .select-items ul").append(options);
+                    //$("#departSelect #ddlOrganizeId").append(options);
+                    // $(".ddlOrganizeId").html(options);
+                    // $(".ddlOrganizeId").css("width","85%");
+                } else {
+                    alert(result.message);
+                }
+            },//响应成功后的回调函数
+            error: function (err) {
+                alert("...")
+            },
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#gridview").edwGrid({
+            height: $(window).height() - 130
+            , colModel: [
+                {title: "账号", width: 80, align: "center", dataField: "user_Name"},
+                {title: "姓名", width: 80, align: "center", dataField: "real_name"},
+                {title: "性别", width: 50, align: "center", dataField: "sex"},
+                {title: "岗位", width: 80, align: "center", dataField: "position"},
+
+                {
+                    title: "角色", width: 80, align: "center", render: function (ui) {
+                        return ui.rowData.role.role_Name;
+                    }
+                },
+
+                {title: "部门", width: 120, align: "center", dataField: "department"},
+                {title: "电话", width: 100, align: "center", dataField: "telephone"},
+
+                {
+                    title: "状态", width: 80, lockWidth: true, align: "center", render: function (ui) {
+                        return ui.rowData.status == "0" ? "正常" : "禁用"
+                    }
+                },
+                {title: "添加项目", width: 80, align: "center", render: addProjects},
+                {hidden: true, dataField: "id"}
+            ]
+            , nowrap: true //内容不折行
+            , fullWidthRows: true //伸展列宽自动充满表格
+            , indexCell: true //索引单元格
+            , checkCell: true //选框单元格
+            , ajaxUrl: "/manager/selectAll"
+            , params: getCookie("token")
+        });
+    });
+
+    //添加项目
+    function addProjects(ui) {
+        var uid = ui.rowData["id"];
+
+        //var html = '<select id="' + uid + '" style="width:100px;height: 30px;" onchange="LoadAttchs(' + uid + ')">';
+        var htmls = '<a class="download_file" onclick="LoadProjectAttchs(' + uid + ')"> <i class="fa fa-download"></i> 添加 </a>';
+        return htmls;
+    }
+
+    //添加项目界面
+    function LoadProjectAttchs(manageId) {
+
+        if (manageId == undefined || manageId == "") {
+            manageId = 0;
+        }
+        layer.open({
+            id: "_views",
+            type: 2,
+            title: "添加项目",
+            area: ["860px", "680px"],
+            content: "addproject.aspx?manageId=" + manageId,
+            btnclass: ['btn btn-success', 'btn btn-warning'],
+            yes: function () {
+                top.frames["_views"].print();
+            }, btn2: function () {
+                return true;
+            },
+            end: function () {
+                BindGridView();
+            }
+        });
+    }
+
+    //绑定数据表格
+    function BindGridView() {
+        var option = {};
+
+        var options = $("#ddlOrganizeId option:selected");
+        var department = options.val();
+        if (department != 0) {
+            option.department = options.text();
+        }
+
+        options = $("#IsInOutProject option:selected");
+        var status = options.val();
+        if (status != "请选择")
+            option.status = options.val();
+
+        var realName = $(".keyword").val().trim();
+        if (!(isEmpty(realName)))
+            option.real_name = realName;
+
+        option.ajaxUrl = "/manager/searchManager";
+        $("#gridview").edwGrid().pageLoad(option);
+    }
+
+    //修改
+    function edit() {
+        var id = $("#gridview").edwGrid().selectedRows("id").toString();
+        if (IsEditdata(id)) {
+            var url = "form.aspx?action=Edit&id=" + id;
+            this.location.href = url;
+        }
+    }
+
+    //删除
+    function dele() {
+        var ids = $("#gridview").edwGrid().selectedRows("id").toString();
+        if (IsDelData(ids)) {
+            $.delete("/api/manager/" + ids, function (data) {
+                top.dialog.topMsg(data.msg);
+                BindGridView();
+            });
+        }
+    }
+
+    //日志
+    function log() {
+        var user_name = $("#gridview").edwGrid().selectedRows("user_name").toString();
+        if (IsEditdata(user_name)) {
+            var url = "log.aspx?keyword=" + user_name;
+            top.linkMenuTree(false, 'manager_log');
+            this.location.href = url;
+        }
+    }
+
+    $(document).keypress(function (e) {
+        if ((e.keyCode || e.which) == 13) {
+            $("#search_btn").click();  //login_btn登录按钮的id
+        }
+    });
+</script>
+</form>
+</body>
+</html>
+

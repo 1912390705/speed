@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gjdt.modules.landmark.dao.LandmarkMapper">
+    <resultMap id="LandmarkMap" type="com.gjdt.modules.entity.Landmark">
+
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="project_id" jdbcType="INTEGER" property="project_id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="iscompleted" jdbcType="INTEGER" property="iscompleted"/>
+        <result column="complete_time" jdbcType="TIMESTAMP" property="complete_time"/>
+        <result column="add_time" jdbcType="TIMESTAMP" property="add_time"/>
+        <result column="ratio" jdbcType="DOUBLE" property="ratio"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="filename" jdbcType="VARCHAR" property="filename"/>
+    </resultMap>
+    <select id="selectLandPId" parameterType="java.lang.Integer" resultMap="LandmarkMap">
+        select id,project_id,title,iscompleted,complete_time,add_time,ratio,description,filename
+        from landmark where project_id=#{project_id}
+    </select>
+    <select id="selectOneById" parameterType="java.lang.Integer" resultMap="LandmarkMap">
+        select id,project_id,title,iscompleted,complete_time,add_time,ratio,description,filename
+        from landmark where id=#{id}
+    </select>
+    <select id="selectAll" resultMap="LandmarkMap">
+        select id,project_id,title,iscompleted,complete_time,add_time,ratio,description,filename
+        from landmark
+    </select>
+    <insert id="addLandmark" parameterType="com.gjdt.modules.entity.Landmark">
+        insert into landmark
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="project_id != null">
+                project_id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="iscompleted != null">
+                iscompleted,
+            </if>
+            <if test="complete_time != null">
+                complete_time,
+            </if>
+            <if test="add_time != null">
+                add_time,
+            </if>
+
+            <if test="ratio != null">
+                ratio,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="filename != null">
+                filename,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="project_id != null">
+                #{project_id},
+            </if>
+            <if test="title != null">
+                #{title},
+            </if>
+            <if test="iscompleted != null">
+                #{iscompleted},
+            </if>
+            <if test="complete_time != null">
+                #{complete_time},
+            </if>
+            <if test="add_time != null">
+                #{add_time},
+            </if>
+
+            <if test="ratio != null">
+                #{ratio},
+            </if>
+            <if test="description != null">
+                #{description},
+            </if>
+            <if test="filename != null">
+                #{filename},
+            </if>
+        </trim>
+    </insert>
+    <delete id="deleteLandmark" parameterType="java.lang.Integer">
+        delete from landmark where id=#{id}
+    </delete>
+    <update id="updateLandmark" parameterType="com.gjdt.modules.entity.Landmark">
+        update landmark
+        <set>
+            <if test="project_id != null">
+                project_id=#{project_id},
+            </if>
+            <if test="title != null">
+                title= #{title},
+            </if>
+            <if test="iscompleted != null">
+                iscompleted=#{iscompleted},
+            </if>
+            <if test="complete_time != null">
+                complete_time=#{complete_time},
+            </if>
+            <if test="add_time != null">
+                add_time= #{add_time},
+            </if>
+
+            <if test="ratio != null">
+                ratio=#{ratio},
+            </if>
+            <if test="description != null">
+                description=#{description},
+            </if>
+            <if test="filename != null">
+                filename=#{filename},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+</mapper>

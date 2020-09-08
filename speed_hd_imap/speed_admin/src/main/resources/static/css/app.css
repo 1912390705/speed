@@ -1,0 +1,199 @@
+/*body.mainBody {*/
+/*  width: 100%;*/
+/*  height: 700px;*/
+/*  background: #d25151;*/
+/*}*/
+
+nav.navbar {
+  background: #d25151;
+  padding-left: 0%;
+  padding-right: 10%;
+  margin-bottom: 0px;
+  border-bottom: #c6e09b 5px solid ;
+}
+
+body > .background {
+  width: 100%;
+  z-index:-1;
+  /*background: #fff url('../img/main-bg.png') repeat-x;*/
+  position: absolute;
+}
+
+.logocolor{
+  background-color: #ac2b2a !important;
+}
+
+/*logo区域的样式*/
+.logoArea{
+  height:50px;
+  overflow:hidden;
+  text-align:left;
+  line-height:50px;
+  width:280px;
+  padding: 0 20px;
+}
+
+/*logo区域文字部分的样式*/
+.logoArea span{
+  font-size:15px;
+  font-weight:normal;
+  padding-left:10px;
+  color:#ffffff;
+}
+
+.icon-menu {
+  display: block;
+  float: left;
+  width: 42px;
+  height: 50px;
+  background: url(../images/skin_icons.png) 11px -239px no-repeat #ac2b2a;
+  border-left: 1px solid #ac3e42;
+  cursor: pointer;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.main-nav {
+  float: left;
+  text-align:center;
+}
+
+.main-nav a:hover {
+  color: #FFF;
+  text-decoration: none;
+  background: #a8cc9f;
+}
+
+.main-nav a {
+  /*display: none;*/
+  float: left;
+  margin: 0;
+  padding: 0 20px;
+  border-right: 1px solid #d2554e;
+  height: 50px;
+  line-height: 42px;
+  color: #ccc;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.topRight {
+  position: relative;
+  float: right;
+  height: 50px;
+  font-size: 10px;
+  padding-top: 10px;
+  right: 10px;
+  color: #2019ae;
+}
+
+.nav-right{
+  float: right;
+  height: 50px;
+  font-size: 10px;
+  padding-top: 10px;
+  color: #2019ae;
+}
+
+.nav-right.loginInfo{
+  float: right;
+  height: 50px;
+}
+
+.tl-user-input{
+  /*width: 100%;*/
+  border: 1px solid #ccc;
+  background: #F4F4F7;
+  border-radius: 3px;
+  margin-top: 5px;
+  padding-left:5px;
+  /*padding-top:10px;*/
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+.tl-user-input:focus{
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+.ant-btn {
+  line-height: 1.499;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+  cursor: pointer;
+  -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  height: 24px;
+  font-size: 10px;
+  border-radius: 4px;
+  width: 72px;
+  /*background:-webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));;*/
+  /*background-color: #fff;*/
+}
+.ant-btn-red {
+  content: url("../images/login_manager_user.png");
+  color: #2019ae;
+  margin-left: 10px;
+  background-color: #c7e19c;
+  border-color: #c7e19c;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+}
+
+.ant-btn-red:hover{
+  border-color: #c7e19c;
+  outline: 0;
+  color: #000000;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+.ant-btn-red:focus{
+  border-color: #c7e19c;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+.loin-pic {
+  position: absolute;
+  top: -4px;
+  left: 1px;
+  width: 24px;
+  height: 24px;
+  background: url(../images/login_manager_user.png) no-repeat 100% 100%/100% 100%;
+}
+
+.loin-in {
+  position: relative;
+  left:6px;
+}
+
+.main-container {
+  position: absolute;
+  top: 43px;
+  right: 0;
+  bottom: 0;
+  left: 180px;
+  overflow: hidden;
+  background: #fff;
+}

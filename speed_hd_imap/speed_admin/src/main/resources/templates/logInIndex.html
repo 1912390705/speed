@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>高精地图综合管理平台</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.css" th:href="@{/js/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="/css/base.css" th:href="@{/css/base.css}">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!-- 引入 初始化函数 -->
+<!--    <script type="text/javascript" data-main="/js/scripts/main.js"-->
+<!--            src="/js/lib/require-2.3.5.js"></script>-->
+</head>
+<body id="mainBody">
+<form method="post" action="./main.index" id="form1">
+    <div class="aspNetHidden">
+        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+        <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+               value="l/vSGeGrmzX7/kEFaGgjNXcEpR0330jFaU0JiAy35miZ6ahBthDszmzLo37PLu+g5sawNRDdzj3m9pQH5/QpYsFgj6KXJLg4XmvPhmKmcpw=">
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        var theForm = document.forms['form1'];
+        if (!theForm) {
+            theForm = document.form1;
+        }
+
+        function __doPostBack(eventTarget, eventArgument) {
+            if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                theForm.__EVENTTARGET.value = eventTarget;
+                theForm.__EVENTARGUMENT.value = eventArgument;
+                theForm.submit();
+            }
+        }
+
+        //]]>
+    </script>
+    <div class="aspNetHidden">
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A486FC62">
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+               value="/WsaoVTMnmxQE7NcRM6MOk7CRf7AHfuS3yAenkNcGREjMmc4/BWHBN6MuqRn63Z9a9CSlx2yNTbAZLr14xxlbMTp856HVl274dKhGRw9SS3yZuiYVuV4OMfBqvLOtpif">
+    </div>
+
+    <div class="main-top">
+        <a class="icon-menu"></a>
+        <div id="main-nav" class="main-nav">
+            <a class="selected">项目概览</a>
+            <a>项目管理</a>
+            <a>流程</a>
+            <a>任务协作</a>
+            <a>控制面板</a>
+        </div>
+        <div class="nav-right">
+            <div class="option">
+                <a href="home.html" onclick="linkMenuTree(false, '');" target="mainframe">管理中心</a>
+            </div>
+            <div class="option">
+                <!--           <span>-->
+
+                <!--           </span>-->
+                <span>登录身份 <a id="userName" class="userName">admin.</a></span>
+                <span>
+                        <form style="display: inline-block;" method="post" action="/manager/exit">
+                            <button class="ant-btn ant-btn-red" type="submit">
+                                <div><img src="/images/door-out.png" alt="注销"><span
+                                        style="padding:0 6px;">注销</span></div>
+                            </button>
+                        </form>
+                    </span>
+            </div>
+            <div class="option">
+                <a>未来网络事业部</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-left">
+        <a href="home.html" target="mainframe" onclick="linkMenuTree(false, '')">
+            <img src="/images/logo.png" width="250px" style = "vertical-align: top">
+        </a>
+        <div id="sidebar-nav" class="sidebar-nav">
+            <div class="list-group" style="display: block;"><h1 title="项目概览"></h1>
+                <div class="list-wrap"><h2>项目概览<i></i></h2>
+                    <ul style="display: block;">
+                        <li><a navid="sys_project" href="project/project_details.aspx" target="mainframe">
+                            <span>项目概览</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list-group"><h1 title="项目"><img src="/admin/themes/skins/nav/home.png"></h1>
+                <div class="list-wrap"><h2>项目管理<i></i></h2>
+                    <ul style="display: block;">
+                        <li><a navid="ProjectIndex" href="project/index.aspx" target="mainframe">
+                            <span>项目管理</span></a></li>
+                        <li><a navid="projectmanager" href="/XiangMuGuanLi/projectmanage.aspx" target="mainframe">
+                            <span>项目内容管理</span></a></li>
+                        <li><a navid="siftproject" href="/XiangMuGuanLi/siftproject.aspx" target="mainframe">
+                            <span>项目筛查</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list-group"><h1 title="流程"></h1>
+                <div class="list-wrap"><h2>流程<i></i></h2>
+                    <ul style="display: block;">
+                        <li><a navid="sys_working_hour" href="workinghour/form.aspx" target="mainframe">
+                            <span>任务下发</span></a></li>
+                    </ul>
+                    <ul style="display: block;">
+                        <li><a navid="sys_working_hour" href="workinghour/form.aspx" target="mainframe">
+                            <span>任务确认</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list-group"><h1 title="任务协作"></h1>
+                <div class="list-wrap"><h2>任务协作<i></i></h2>
+                    <ul style="display: block;">
+                        <li><a navid="suishouji" href="suishouji/index.aspx" target="mainframe">
+                            <span>任务协作</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list-group"><h1 title="控制面板"><img src="/admin/themes/skins/nav/sys.png"></h1>
+                <div class="list-wrap">
+                    <h2>控制面板<i></i></h2>
+                    <ul style="display: block;">
+                        <li><a navid="sys_manager" target="mainframe"><span>系统用户</span><b
+                                class="expandable close"></b></a>
+                            <ul style="display: none;">
+                                <li><a navid="manager_list" href="html?page=UserInfo" target="mainframe">
+                                    <span>人员管理</span></a></li>
+                                <li><a navid="manager_role" href="system/role/index.aspx" target="mainframe">
+                                    <span>角色管理</span></a></li>
+                                <li><a navid="manager_log" href="system/manager/log.aspx" target="mainframe">
+                                    <span>管理日志</span></a></li>
+                                <li><a navid="ImportIndex" href="organize/ImportIndex.aspx" target="mainframe">
+                                    <span>部门人员导入</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a navid="sys_manager" target="mainframe"><span>项目</span><b
+                                class="expandable close"></b></a>
+                            <ul style="display: none;">
+                                <li><a navid="manager_list" href="system/manager/index.aspx" target="mainframe">
+                                    <span>项目管理</span></a></li>
+                                <li><a navid="manager_role" href="system/role/index.aspx" target="mainframe">
+                                    <span>项目批量导入</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--主窗口>-->
+    <div class="main-container">
+        <iframe id="mainframe" name="mainframe" frameborder="0" src="home.aspx">
+
+        </iframe>
+    </div>
+</form>
+</div>
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/bootstrap/js/bootstrap.js"></script>
+<script src="/js/scripts/common.js"></script>
+<script src="/js/scripts/laypage.js"></script>
+<script src="/js/scripts/laymain.js"></script>
+<script th:inline="javascript">
+    $(document).ready(function () {
+        if (typeof window.init != "undefined") {
+            init();
+        }
+    });
+</script>
+</body>
+</html>

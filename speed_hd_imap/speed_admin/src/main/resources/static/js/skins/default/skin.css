@@ -1,0 +1,446 @@
+.edwGrid{
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #ccc;
+    text-align: left;
+    z-index:0;
+}
+
+.edwGrid * {
+    font-family: "Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;    
+    font-size: 9pt;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+.edwGrid a {
+    color: #3167a3;
+}
+
+.edwGrid table{
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+.edwGrid input[type="radio"],
+.edwGrid input[type="checkbox"]{
+    margin: 0;
+    vertical-align: sub;
+}
+
+/* 遮罩 */
+.edwGrid .edw-mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #ddd;
+}
+
+/* 半透明 */
+.edwGrid .edw-transparent{
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    /* IE 5-7 */
+    filter: alpha(opacity=50);
+    /* Netscape */
+    -moz-opacity: 0.5;
+    /* Safari 1.x */
+    -khtml-opacity: 0.5;
+    /* Good browsers */
+    opacity: 0.5;
+}
+
+/* loading */
+.edwGrid .edw-loading{
+    position: absolute;
+    display: none;
+    text-align: center;
+
+}
+
+.edwGrid .edw-loading .edw-loadingImg{
+    margin: 8px auto;
+    /*width: 32px;height: 32px;*/
+    width: 100px;height: 20px;
+    background: url(../../../images/loading-x.gif) no-repeat center center;
+}
+
+.edwGrid .edw-loading .edw-loadingText{
+    
+}
+
+/* 标题包装 */
+.edwGrid .edw-headWrapper{
+    position: relative;
+    overflow: hidden;
+    width: 9999px;
+
+    background: #F7F7F7; /* Old browsers */
+    /*background: -moz-linear-gradient(top,  #f9f9f9 0%, #eaeaea 100%);*/ /* FF3.6+ */
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#eaeaea));*/ /* Chrome,Safari4+ */
+    /*background: -webkit-linear-gradient(top,  #f9f9f9 0%,#eaeaea 100%);*/ /* Chrome10+,Safari5.1+ */
+    /*background: -o-linear-gradient(top,  #f9f9f9 0%,#eaeaea 100%);*/ /* Opera 11.10+ */
+    /*background: -ms-linear-gradient(top,  #f9f9f9 0%,#eaeaea 100%);*/ /* IE10+ */
+    /*background: linear-gradient(to bottom,  #f9f9f9 0%,#eaeaea 100%);*/ /* W3C */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#eaeaea',GradientType=0 );*/ /* IE6-8 */
+
+    /*-moz-box-shadow: 0 0px 2px #bbb;
+    -webkit-box-shadow: 0 0px 2px #bbb;
+    box-shadow: 0 0px 2px #bbb;*/
+    /*border-top: 2px solid #b00;*/
+    z-index: 1;
+
+}
+
+/* 标题 */
+.edwGrid .edw-headWrapper .edw-head{
+    position: relative;
+}
+
+.edwGrid .edw-headWrapper .edw-head th{
+    position: relative;
+    padding: 4px 5px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #d2d2d2;
+    overflow: hidden;
+    text-align: center;
+}
+
+.edwGrid .edw-headWrapper .edw-head th.edw-groupCol{
+    /* 分组列 */
+}
+
+.edwGrid .edw-headWrapper .edw-head th input{
+    height: 2em;
+}
+
+.edwGrid .edw-headWrapper .edw-head th .edw-titleWrapper{
+    position: relative;    
+    /*height: 2em;*/
+}
+
+.edwGrid .edw-headWrapper .edw-head th .edw-titleWrapper .edw-colResize{
+    position: absolute;
+    top: 0;
+    right: -6px;
+    _right: -4px;
+    width: 4px;
+    height: 100%;
+    cursor: col-resize;
+}
+
+.edwGrid .edw-headWrapper .edw-head th .edw-titleWrapper .edw-title{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    height: 2em;
+    font-weight: bold;
+    line-height: 2;
+    vertical-align: top;
+    color:#555;
+}
+
+.edwGrid .edw-headWrapper .edw-head th .edw-titleWrapper .edw-canSort{
+    cursor: pointer;
+    /*text-decoration: underline;*/
+}
+
+.edwGrid .edw-headWrapper .edw-head th .edw-titleWrapper .edw-sort{
+    overflow: hidden;
+    display: none;
+    width: 7px;
+    height: 2em;
+    margin-left: 2px;
+    vertical-align: top;
+}
+
+.edwGrid .edw-headWrapper .edw-head th .edw-titleWrapper .edw-asc{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    background: url(images/sort-asc.png) no-repeat center center;
+}
+
+.edwGrid .edw-headWrapper .edw-head th .edw-titleWrapper .edw-desc{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    background: url(images/sort-desc.png) no-repeat center center;
+}
+
+.edwGrid  .edw-colResizePointer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 1px;
+    height: 100%;
+    background: #999;
+    cursor: col-resize;
+    z-index: 1;
+}
+
+.edwGrid  .edw-colResizePointer-before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 1px;
+    height: 100%;
+    background: #999;
+    cursor: col-resize;
+    z-index: 1;
+}
+
+/* 背板 */
+.edwGrid .edw-backboard{
+    position: relative;
+    display: none;
+    background-image: url(../../../images/furley_bg.png);
+    background-image: -webkit-image-set(
+        url(../../../images/furley_bg.png) 1x,
+        url(images/furley_bg_@2X.png) 2x
+    );
+    /*-webkit-box-shadow: inset 0 0 2px 1px #d9d9d9;
+    -moz-box-shadow: inset 0 0 2px 1px #d9d9d9;
+    -o-box-shadow: inset 0 0 2px 1px #d9d9d9;
+    -ms-box-shadow: inset 0 0 2px 1px #d9d9d9;
+    box-shadow: inset 0 0 2px 1px #d9d9d9;*/
+    text-align: left;
+}
+.edwGrid .edw-backboard h1{
+    margin: 0 10px 5px 10px;
+    padding: 10px 0 5px 0;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.8;
+    border-bottom: 1px solid #ccc;
+}
+
+.edwGrid .edw-backboard label{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 95px;
+    font-size: 1em;
+    line-height: 2.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.edwGrid .edw-backboard label input{
+    margin: 0 5px 0 10px;
+    padding: 0px;
+    border: 0px;
+}
+
+/* 内容包装器 */
+.edwGrid .edw-bodyWrapper{
+    position: relative;
+    overflow-x: auto;
+    overflow-y: scroll;
+    width: 9999px;
+    min-height: 0%; /* fix IE9 hover bug see: http://jsfiddle.net/pjkix/86Lfv/ */
+}
+
+/* 内容 */
+.edwGrid .edw-bodyWrapper .edw-body{
+    table-layout: fixed;
+}
+
+.edwGrid .edw-bodyWrapper .edw-body tr{
+
+}
+
+.edwGrid .edw-bodyWrapper .edw-body tr.even{
+    background: #f9f9f9;
+}
+
+.edwGrid .edw-bodyWrapper .edw-body td{
+    padding: 4px 5px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    line-height: 2;
+}
+
+.edwGrid .edw-bodyWrapper .edw-body td.index-cell {
+    background:#F7F7F7;
+}
+.edwGrid .edw-bodyWrapper .edw-body td .edw-index{
+    color: #000000;
+}
+
+.edwGrid .edw-bodyWrapper .edw-body td.colSelected{
+    background: #f7f7f7;
+}
+
+.edwGrid .edw-bodyWrapper .edw-body td.colSelectedEven{
+    background: #f5f5f5;
+}
+
+.edwGrid .edw-bodyWrapper .edw-body tr.hover td:not(.index-cell){
+    background: #e1eff8;
+}
+
+.edwGrid .edw-bodyWrapper .edw-body tr:hover td:not(.index-cell){
+    background: #e1eff8;
+}
+
+.edwGrid .edw-bodyWrapper .edw-body tr.selected td:not(.index-cell){
+    background: #fff5bb;
+}
+
+.edwGrid .nowrap{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+}
+
+/* 消息 */
+.edwGrid .edw-message{
+    position: absolute;
+    display: none;
+    text-align: center;
+}
+
+.edwGrid .edw-btnBackboardDn{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: block;
+    width: 50px;
+    height: 20px;
+    background: #fff url(../../../images/arrow_down.png) no-repeat center center;
+    border: 1px solid #ccc;
+    border-top: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 1px 1px 3px #ccc;
+    -moz-box-shadow: 1px 1px 3px #ccc;
+    -o-box-shadow: 1px 1px 3px #ccc;
+    -ms-box-shadow: 1px 1px 3px #ccc;
+    box-shadow:1px 1px 3px #ccc;
+    cursor: pointer;
+}
+
+.edwGrid .edw-backboard .edw-btnBackboardUp{
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    display: block;
+    width: 50px;
+    height: 20px;
+    background: #fff url(images/arrow_up.png) no-repeat center center;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 1px 1px 3px #ccc;
+    -moz-box-shadow: 1px 1px 3px #ccc;
+    -o-box-shadow: 1px 1px 3px #ccc;
+    -ms-box-shadow: 1px 1px 3px #ccc;
+    box-shadow:1px 1px 3px #ccc;
+    cursor: pointer;
+}
+
+/* 底部包装器 */
+.edwGrid .edw-footWrapper{
+    position: relative;
+    color: #333;
+    background: #F7F7F7;  
+    /*min-height: 0%;*/ /* fix IE9 hover bug see: http://jsfiddle.net/pjkix/86Lfv/ */
+}
+
+
+
+/**********************分页样式*************************/
+.edwPaginator {    
+    /*height:25px;
+    line-height:24px;*/
+    vertical-align:middle;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid rgba(0, 0, 0, 0.00);
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    padding: 2px 5px 1px;
+}
+.edwPaginator * {
+    vertical-align: middle;   
+}
+.edwPaginator input[type='button'] {
+    height: 22px;
+    width: 22px;
+    margin-right: 5px;
+    padding: .2em .2em;
+    border: 1px solid #cccccc;
+    cursor:pointer;
+    vertical-align:middle;
+    background-color:#F0F0F0;
+}
+.edwPaginator input[type='button']:enabled:hover {
+    border: 1px solid #aaaaaa;
+}
+.edwPaginator input[disabled='disabled'] {
+    opacity: .45;
+    filter: Alpha(Opacity=45);
+}
+.edwPaginator .edw-page-first {
+    background: url("../../../images/page-first-gray.gif") no-repeat center center;
+}
+.edwPaginator .edw-page-prev {
+    background: url("../../../images/page-prev-gray.gif") no-repeat center center;
+}
+.edwPaginator .edw-page-next {
+    background: url("../../../images/page-next-gray.gif") no-repeat center center;
+}
+.edwPaginator .edw-page-last {
+    background: url("../../../images/page-last-gray.gif") no-repeat center center;
+}
+.edwPaginator .edw-refresh {
+    background: url("../../../images/refresh.gif") no-repeat center center;
+}
+.edwPaginator span.edw-separator {
+    height: 20px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #fff;
+    display: inline-block;
+    margin-right: 5px;
+}
+.edwPaginator .edw-pageholder {
+    vertical-align: top;
+}
+.edwPaginator span, .edwPaginator select {
+    margin-right: 5px;
+    font-size: 9pt;
+    height: 20px;
+}
+.edwPaginator input:focus, .edwPaginator select:focus {
+    outline: 0;
+}
+.edwPaginator input[type='text'] {
+    padding: 0 0px;
+    text-align: center;
+    width: 35px;
+    margin-right: 5px;
+    height: 16px;
+}
+.edwPaginator input[type='button'] {
+    border-radius:3px;
+}
+.nowrap i.fa-toggle-on {
+    font-size: 16px;
+    color: #16a0d3;
+}

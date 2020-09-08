@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gjdt.modules.manager.dao.ManagerMapper">
+    <resultMap id="BaseResultMap" type="com.gjdt.modules.entity.Manager">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="user_Name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="role_id" jdbcType="INTEGER" property="role_id"/>
+        <result column="telephone" jdbcType="VARCHAR" property="telephone"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="real_name" jdbcType="VARCHAR" property="real_name"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="department" jdbcType="VARCHAR" property="department"/>
+        <result column="position" jdbcType="VARCHAR" property="position"/>
+        <association property="role" javaType="com.gjdt.modules.entity.Role" resultMap="com.gjdt.modules.manager.dao.RoleMapper.RoleResultMap" ></association>
+    </resultMap>
+    <select id="selectOne" resultMap="BaseResultMap">
+        select id,user_name,password,role_id,telephone,status,real_name,sex,position,department
+        from manager where user_name=#{user_name} and password=#{password}
+    </select>
+    <insert id="addManager" parameterType="com.gjdt.modules.entity.Manager">
+        insert into manager
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="user_Name != null">
+                user_name,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="role_id != null">
+                role_id,
+            </if>
+            <if test="telephone != null">
+                telephone,
+            </if>
+
+            <if test="status != null">
+                status,
+            </if>
+            <if test="real_name != null">
+                real_name,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="department != null">
+                department,
+            </if>
+
+            <if test="position != null">
+                position,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="user_Name != null">
+                #{user_Name},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="role_id != null">
+                #{role_id},
+            </if>
+            <if test="telephone != null">
+                #{telephone},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+            <if test="real_name != null">
+                #{real_name},
+            </if>
+            <if test="sex != null">
+                #{sex},
+            </if>
+            <if test="department != null">
+                #{department},
+            </if>
+
+            <if test="position != null">
+                #{position},
+            </if>
+
+        </trim>
+    </insert>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select m.id,m.user_name,m.password,m.role_id,m.telephone,m.status,m.real_name,m.sex,m.department,m.position,r.rid,r.role_name,r.role_type
+        from manager m,role r where m.role_id=r.rid and r.role_type &gt; #{role_type} order by m.id asc
+        <if test="department!=null">
+            and m.department=#{department}
+        </if>
+    </select>
+    <select id="selectOneById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id,user_name,password,role_id,telephone,status,real_name,sex,department,position
+    from manager where id=#{id}
+    </select>
+    <update id="updateManager" parameterType="com.gjdt.modules.entity.Manager">
+        update manager
+        <set>
+            <if test="user_Name != null">
+                user_name = #{user_Name},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="role_id != null">
+                role_id = #{role_id},
+            </if>
+            <if test="telephone != null">
+                telephone = #{telephone},
+            </if>
+
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="real_name != null">
+                real_name = #{real_name},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="department != null">
+                department = #{department},
+            </if>
+
+            <if test="position != null">
+                position = #{position},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <select id="selectProject" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select id,user_name,password,role_id,telephone,status,real_name,sex,department,position
+        from manager where id in
+        <foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+            select manager_id from manager_project where project_id=#{id}
+        </foreach>
+    </select>
+    <delete id="deleteManager" parameterType="java.lang.Integer">
+        delete from manager where id in
+        <foreach collection="array" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectStaff" resultMap="BaseResultMap">
+        select manager.id,count(*) as num,user_name,password,role_id,telephone,status,real_name,sex,department,position FROM manager
+        left join task on manager.id=task.staffname where role_id = 3 group by manager.id order by num asc
+    </select>
+    <select id="searchManager" resultMap="BaseResultMap">
+        select m.id,m.user_name,m.password,m.role_id,m.telephone,m.status,m.real_name,m.sex,m.department,m.position,r.rid,r.role_name,r.role_type
+        from manager m,role r
+        <where>
+            m.role_id = r.rid and
+            r.role_type &gt; #{role_type}
+            <if test="status != null">
+                and m.status=#{status}
+            </if>
+            <if test="department !=null">
+                and m.department=#{department}
+            </if>
+            <if test="real_name !=null">
+                and m.real_name like concat('%',#{real_name},'%')
+            </if>
+            order by m.id asc
+        </where>
+    </select>
+</mapper>

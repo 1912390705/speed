@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gjdt.modules.project.dao.ManagerProjectMapper">
+    <resultMap id="ManagerProjectMap" type="com.gjdt.modules.entity.ManagerProject">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="manager_id" jdbcType="INTEGER" property="manager_id"/>
+        <result column="project_id" jdbcType="INTEGER" property="project_id"/>
+        <result column="ratio" javaType="DOUBLE" property="ratio"/>
+        <result column="range" javaType="INTEGER" property="range"/>
+    </resultMap>
+    <insert id="addManagerProject" >
+        insert into manager_project(manager_id,project_id) values(#{manager_id},#{project_id})
+    </insert>
+    <select id="selectByProjectId" parameterType="java.lang.Integer" resultMap="ManagerProjectMap">
+        select id,manager_id,project_id,ratio,range from manager_project where project_id = #{project_id}
+    </select>
+    <delete id="deleteProjectManager" parameterType="java.lang.Integer">
+        delete from manager_project where id=#{id}
+    </delete>
+    <update id="updateManagerProject" >
+        update manager_project set manager_id=#{manager_id} where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gjdt.modules.project.dao.ManagerProjectMapper">
+    <resultMap id="BaseResultMap" type="com.gjdt.modules.entity.Project">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="project_name" jdbcType="VARCHAR" property="project_name"/>
+        <result column="project_number" jdbcType="VARCHAR" property="project_number"/>
+        <result column="project_manager_id" jdbcType="INTEGER" property="project_manager_id"/>
+        <result column="contract_signing_time" jdbcType="DATE" property="contract_signing_time"/>
+        <result column="contract_closing_time" jdbcType="DATE" property="contract_closing_time"/>
+        <result column="remaining_time" jdbcType="VARCHAR" property="remaining_time"/>
+        <result column="contract_amount" jdbcType="DOUBLE" property="contract_amount"/>
+        <result column="effective_contract_amount" jdbcType="DOUBLE" property="effective_contract_amount"/>
+        <result column="total_hours" jdbcType="VARCHAR" property="total_hours"/>
+        <result column="project_schedule" jdbcType="DOUBLE" property="project_schedule"/>
+        <result column="project_health_index" jdbcType="VARCHAR" property="project_health_index"/>
+        <result column="final_inspection_time" jdbcType="DATE" property="final_inspection_time"/>
+        <result column="project_budget" jdbcType="DOUBLE" property="project_budget"/>
+        <result column="project_residual_cost" jdbcType="DOUBLE" property="project_residual_cost"/>
+        <result column="project_payment" jdbcType="DOUBLE" property="project_payment"/>
+        <result column="project_cost" jdbcType="DOUBLE" property="project_cost"/>
+        <result column="labor_cost" jdbcType="DOUBLE" property="labor_cost"/>
+        <result column="expense_cost" jdbcType="DOUBLE" property="expense_cost"/>
+        <result column="estimated_labor_cost" jdbcType="DOUBLE" property="estimated_labor_cost"/>
+        <result column="purchase_contract_amount" jdbcType="DOUBLE" property="purchase_contract_amount"/>
+        <result column="shared_expense" jdbcType="DOUBLE" property="shared_expense"/>
+        <result column="review_document_url" jdbcType="VARCHAR" property="review_document_url"/>
+        <result column="technical_design_book_url" jdbcType="VARCHAR" property="technical_design_book_url"/>
+        <result column="technical_summary_url" jdbcType="VARCHAR" property="technical_summary_url"/>
+        <result column="project_quality_inspection_report_url" jdbcType="VARCHAR" property="project_quality_inspection_report_url"/>
+        <result column="acceptance_report" jdbcType="VARCHAR" property="acceptance_report"/>
+    </resultMap>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id,project_name,project_number,project_manager_id,contract_signing_time,contract_closing_time,
+        remaining_time,contract_amount,effective_contract_amount,total_hours,project_schedule,project_health_index,
+        final_inspection_time,project_budget,project_residual_cost,project_payment,project_cost,labor_cost,
+        expense_cost,estimated_labor_cost,purchase_contract_amount,shared_expense,review_document_url,technical_design_book_url
+        technical_summary_url,project_quality_inspection_report_url,acceptance_report
+    from project
+    <if test="project_manager_id != null">
+        where project_manager_id=#{project_manager_id}
+    </if>
+</select>
+    <insert id="addProject" parameterType="com.gjdt.modules.entity.Project">
+        insert into project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="project_name != null">
+                project_name,
+            </if>
+            <if test="project_number != null">
+                project_number,
+            </if>
+            <if test="project_manager_id != null">
+                project_manager_id,
+            </if>
+            <if test="contract_signing_time != null">
+                contract_signing_time,
+            </if>
+
+            <if test="contract_closing_time != null">
+                contract_closing_time,
+            </if>
+            <if test="remaining_time != null">
+                remaining_time,
+            </if>
+            <if test="contract_amount != null">
+                contract_amount,
+            </if>
+            <if test="effective_contract_amount != null">
+                effective_contract_amount,
+            </if>
+            <if test="total_hours != null">
+                total_hours,
+            </if>
+            <if test="project_schedule != null">
+                project_schedule,
+            </if>
+            <if test="project_health_index != null">
+                project_health_index,
+            </if>
+            <if test="final_inspection_time != null">
+                final_inspection_time,
+            </if>
+            <if test="project_budget != null">
+                project_budget,
+            </if>
+            <if test="project_residual_cost != null">
+                project_residual_cost,
+            </if>
+            <if test="project_payment != null">
+                project_payment,
+            </if>
+            <if test="project_cost != null">
+                project_cost,
+            </if>
+            <if test="labor_cost != null">
+                labor_cost,
+            </if>
+            <if test="expense_cost != null">
+                expense_cost,
+            </if>
+            <if test="estimated_labor_cost != null">
+                estimated_labor_cost,
+            </if>
+            <if test="purchase_contract_amount != null">
+                purchase_contract_amount,
+            </if>
+            <if test="shared_expense != null">
+                shared_expense,
+            </if>
+            <if test="review_document_url != null">
+                review_document_url,
+            </if>
+            <if test="technical_design_book_url != null">
+                technical_design_book_url,
+            </if>
+            <if test="technical_summary_url != null">
+                technical_summary_url,
+            </if>
+            <if test="project_quality_inspection_report_url != null">
+                project_quality_inspection_report_url,
+            </if>
+            <if test="acceptance_report != null">
+                acceptance_report,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="project_name != null">
+                #{project_name},
+            </if>
+            <if test="project_number != null">
+                #{project_number},
+            </if>
+            <if test="project_manager_id != null">
+                #{project_manager_id},
+            </if>
+            <if test="contract_signing_time != null">
+                #{contract_signing_time},
+            </if>
+            <if test="contract_closing_time != null">
+                #{contract_closing_time},
+            </if>
+            <if test="remaining_time != null">
+                #{remaining_time},
+            </if>
+            <if test="contract_amount != null">
+                #{contract_amount},
+            </if>
+            <if test="effective_contract_amount != null">
+                #{effective_contract_amount},
+            </if>
+            <if test="total_hours != null">
+                #{total_hours},
+            </if>
+            <if test="project_schedule != null">
+                #{project_schedule},
+            </if>
+            <if test="project_health_index != null">
+                #{project_health_index},
+            </if>
+            <if test="final_inspection_time != null">
+                #{final_inspection_time},
+            </if>
+            <if test="project_budget != null">
+                #{project_budget},
+            </if>
+            <if test="project_residual_cost != null">
+                #{project_residual_cost},
+            </if>
+            <if test="project_payment != null">
+                #{project_payment},
+            </if>
+            <if test="project_cost != null">
+                #{project_cost},
+            </if>
+            <if test="labor_cost != null">
+                #{labor_cost},
+            </if>
+            <if test="expense_cost != null">
+                #{expense_cost},
+            </if>
+            <if test="estimated_labor_cost != null">
+                #{estimated_labor_cost},
+            </if>
+            <if test="purchase_contract_amount != null">
+                #{purchase_contract_amount},
+            </if>
+            <if test="shared_expense != null">
+                #{shared_expense},
+            </if>
+            <if test="review_document_url != null">
+                #{review_document_url},
+            </if>
+            <if test="technical_design_book_url != null">
+                #{technical_design_book_url},
+            </if>
+            <if test="technical_summary_url != null">
+                #{technical_summary_url},
+            </if>
+            <if test="project_quality_inspection_report_url != null">
+                #{project_quality_inspection_report_url},
+            </if>
+            <if test="acceptance_report != null">
+                #{acceptance_report},
+            </if>
+        </trim>
+    </insert>
+    <delete id="deleteProject" parameterType="java.lang.Integer">
+        delete from project where id=#{id}
+    </delete>
+    <select id="selectOne" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select id,project_name,project_number,project_manager_id,contract_signing_time,contract_closing_time,
+        remaining_time,contract_amount,effective_contract_amount,total_hours,project_schedule,project_health_index,
+        final_inspection_time,project_budget,project_residual_cost,project_payment,project_cost,labor_cost,
+        expense_cost,estimated_labor_cost,purchase_contract_amount,shared_expense,review_document_url,technical_design_book_url
+        technical_summary_url,project_quality_inspection_report_url,acceptance_report
+    from project where id=#{id}
+    </select>
+    <update id="updateProject" parameterType="com.gjdt.modules.entity.Project">
+        update project
+        <set>
+            <if test="project_name != null">
+                project_name=#{project_name},
+            </if>
+            <if test="project_number != null">
+                project_number=#{project_number},
+            </if>
+            <if test="project_manager_id != null">
+                project_manager_id=#{project_manager_id},
+            </if>
+            <if test="contract_signing_time != null">
+                contract_signing_time=#{contract_signing_time},
+            </if>
+
+            <if test="contract_closing_time != null">
+                contract_closing_time=#{contract_closing_time},
+            </if>
+            <if test="remaining_time != null">
+                remaining_time=#{remaining_time},
+            </if>
+            <if test="contract_amount != null">
+                contract_amount=#{contract_amount},
+            </if>
+            <if test="effective_contract_amount != null">
+                effective_contract_amount=#{effective_contract_amount},
+            </if>
+            <if test="total_hours != null">
+                total_hours=#{total_hours},
+            </if>
+            <if test="project_schedule != null">
+                project_schedule=#{project_schedule},
+            </if>
+            <if test="project_health_index != null">
+                project_health_index=#{project_health_index},
+            </if>
+            <if test="final_inspection_time != null">
+                final_inspection_time=#{final_inspection_time},
+            </if>
+            <if test="project_budget != null">
+                project_budget=#{project_budget},
+            </if>
+            <if test="project_residual_cost != null">
+                project_residual_cost=#{project_residual_cost},
+            </if>
+            <if test="project_payment != null">
+                project_payment=#{project_payment},
+            </if>
+            <if test="project_cost != null">
+                project_cost=#{project_cost},
+            </if>
+            <if test="labor_cost != null">
+                labor_cost=#{labor_cost},
+            </if>
+            <if test="expense_cost != null">
+                expense_cost=#{expense_cost},
+            </if>
+            <if test="estimated_labor_cost != null">
+                estimated_labor_cost=#{estimated_labor_cost},
+            </if>
+            <if test="purchase_contract_amount != null">
+                purchase_contract_amount=#{purchase_contract_amount},
+            </if>
+            <if test="shared_expense != null">
+                shared_expense= #{shared_expense},
+            </if>
+            <if test="review_document_url != null">
+                review_document_url=#{review_document_url},
+            </if>
+            <if test="technical_design_book_url != null">
+                technical_design_book_url= #{technical_design_book_url},
+            </if>
+            <if test="technical_summary_url != null">
+                technical_summary_url=#{technical_summary_url},
+            </if>
+            <if test="project_quality_inspection_report_url != null">
+                project_quality_inspection_report_url=#{project_quality_inspection_report_url},
+            </if>
+            <if test="acceptance_report != null">
+                acceptance_report=#{acceptance_report},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+</mapper>
