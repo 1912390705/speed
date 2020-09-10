@@ -4,13 +4,14 @@ package com.gjdt.modules.manager.dao;
 
 import com.gjdt.modules.entity.Manager;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 
 import java.util.List;
 @Mapper
 public interface ManagerMapper {
-    Manager selectOne(String user_name, String password);
+    Manager selectOne(@Param("user_name") String user_name, @Param("password") String password);
 
     boolean addManager(Manager manager);
 

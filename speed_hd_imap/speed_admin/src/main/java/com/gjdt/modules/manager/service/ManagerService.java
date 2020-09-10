@@ -1,7 +1,6 @@
 package com.gjdt.modules.manager.service;
 
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.pagehelper.PageInfo;
 import com.gjdt.modules.entity.Department;
 import com.gjdt.modules.entity.Manager;

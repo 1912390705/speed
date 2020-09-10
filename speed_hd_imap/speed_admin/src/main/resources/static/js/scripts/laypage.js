@@ -16,7 +16,7 @@ $(function () {
         //延迟执行,防止多次触发
         setTimeout(function () {
             $("#floatHead").children("div").width($("#floatHead").width());
-            $(".toolbar").ruleLayoutToolbar();
+            // $(".toolbar").ruleLayoutToolbar();
             $("#floatHead").height($("#floatHead").children("div").outerHeight());
             $(".imglist").ruleLayoutImgList();
             $(".content-tab").ruleLayoutTab();

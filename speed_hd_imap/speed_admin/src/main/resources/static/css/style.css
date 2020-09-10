@@ -2996,7 +2996,7 @@ textarea.input {
 }
 
 .single-select .select-items {
-    display: block;
+    display: none;
     position: absolute;
     left: 0;
     top: 45px; /*overflow:hidden;*/

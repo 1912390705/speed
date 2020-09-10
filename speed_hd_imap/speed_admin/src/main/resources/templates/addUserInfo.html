@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>
+        高精地图综合管理平台
+    </title>
+    <link type="text/css" href="../css/style.css" rel="stylesheet"/>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/validform_v5.3.2_min.js"></script>
+    <script type="text/javascript" src="../js/scripts/wdatePicker.js"></script>
+    <link href="../css/WdatePicker.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../js/scripts/laypage.js"></script>
+    <script type="text/javascript" src="../js/scripts/common.js"></script>
+<!--     引入 初始化函数 -->
+    <script type="text/javascript" data-main="/js/scripts/userAddMain.js"
+            src="/js/lib/require-2.3.5.js"></script>
+    <script type="text/javascript">
+        $(function () {
+        //初始化表单验证
+        $("#form1").initValidform();
+        });
+    </script>
+</head>
+<body class="mainbody">
+<form id="form1">
+    <div class="aspNetHidden">
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+               value="QnGfAvsGUwpfDfwwLWpq2e5f7R/sJQ1n96j1xRsEvZ5ECspYEK0u/e0gHGf1UVzH9Vi5oZxQnoPj1rOKf/ZWC8s81QZJlSnm3xa4mYJjZ10as93Z0SjtfP8dmHQQ4Zgk92cBE8na1ABTma0EtSYNkRBq35iCi48TdB1aRoW7CjOTEYf5uffp0xro7xjqLBh5aHvxVVVFKWdlgRDYzKdI0LurY4CSeLGyih0mQ9T1VZnpynno1GkeEIjKiQ9n2/IJ0EgYxnG8MOUu7rIlx9bb7LwhFbUY5OPD2Dilk46rLE07bM509YEAudUw+4k8fdP9nOXbuajM5pdLAoRgnkzK2Pes0X/ddaszttCY905eQqcrnPQV6MYwJQ4RXUc2JQHxBxHaaDLyUx5pg58dAfkEvGyWavnWEEnMY/fLTZ554IV+NELYqE1aKvKv8fctxCM3FhDj4jvGikxVzWDtbqAFRati9hU+Dxw76+C+aQVamdBiG80Bm816zldV2l8vKvLNlZ8UdGkqJ22TmNXQXPF3QpRlIsfVXGYwqWDU3nK3nDWHLU70ljQtZufur16Df11M7dEEfNkew5N1VJ+O+PBqTcamJ3cHRuYHXnXyoyRLWLDk9H6uyDEnBV1V/uyenyYq4CImTlrmP51h9f+BW/96+npxspMr2+Z0tVWkjikmvAarfXDYxscmMDSqVzjVTp3VYJEeE5FA8MyFiA4Vq1h85ub06wybsVRmnpQiyg/7lW+0k9xGMeakz+Iv9GUoOPA2Dr4Q9tPoE6YezO8zFCMkOWxrrXvj+uNbJbd/cAYjcoTcNUTWoWRahfapPwo8TO4ZSLIQ4ZdHkmZd4qktg0O8xBgEB1GUuV109FLlznhuFO7BdLg6NZa0+zwfdmAo+PtF+FOhFAgflUWcrfTzZgguaDudSz3hPaoosiW5paBTL+nZ/b0Vy1Wp+J6+dQ+xpDydVW7E9Cj6axhEKjVX+57EfM4nUAQ+c0yIcX6saZX4T4kaZmGUxMtH4baYoXQY7vBrMaivB/AwJiQkYvP2qAmPRg46klDifZGiFxn48uduHR3EL+kMIQDIbDKtfws1rfnbDbEWr5Y/0GrYMqHlOQhqp+kgpdZPA9GZ+b36XmnFuO7mbt5vBzJZZrMXUQTqbAOr40t6gxcfjAD+JFngvXw1qXmq98mwOaI5RXxydRPsSYLMpZ3CmmZoSBdxn7Hx5YlKtvB6uDSYYbIaJy+zPE+vBUCjH00QKYTSY3lZir1/oncbPxQmWKRO/1h32vBupIlXDFT3lnoCqgGXdQquqNDb9yt7bM/v5LrtD3jP0SonJNFycrxaspxOe+XeVeY5f9B/A233TZrHAcrpz6jTXNe1BOwLry6mu7dKGBxyALg2QsCDh3xDxIrcSzdNYa135IHo/CQOl+kbcMa0Lsdv18NMUteM11OeGKoFqXbeyJRS6fbvF61v+t8YTUXdfjVYIwsUA7OXI7gX7bt7SySXRadWfK19hKXqUXkiROCnpGx2RBjx4KBuSVkl2Xp+cbZbs13J/yZadbgQRhB3z6kOW5fSwntzwhSWMPPYJeVc+KLKsVFpqtyoxpS3VBlO735PnVVxi7m2AvF7nrSjtOpx6wyD1PONH4oX1/sTHyUDw27giac=">
+    </div>
+
+    <div class="aspNetHidden">
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C68E3FC9">
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+               value="p4QocXg6wAgm8HSDZzK1BdlQs/J5JW3etJAekcMI0h0yIseciUESZLTnvEqUAbp8KgqZk1DqChi0noBdeFd9fnJEsU1bQR2bQUCDIxcOBtJCERM5x6wQ2psHoy2RWDTwVy2cWxgQfHLfYQJFNfLiWB+AmRfWOpzaW7kgxNNltf9p26kEFtse6ffw+Ce/Z/uccMU0puCXyFSsbJBafPTw+pNdOEw+NVdUVOoR8OSX/+WsaYU1zbBCiQoLQLsLliuI7RHkMh/LyQCTLBJExn4maf7OV7eFCHoDXy+4wmOudU79DfozTqs6YFmAUD1EeQGNHaztEoBUSJ8L41uJexrsTXT5/BzZZvi3QGH7XMihqLt303NyZ/pzrkEi69e+7b7Fjoqc0GhvfXlHegyE61j4U1oxT7JC3VMy8mas4BRD1O4tm4pEQStI6nHSWnoBswuIQkvjnabtMUKYJvOuCkmc5bo6k5nEqhlRpXCOogkuT2iB07cMzl2daCLTFEFZ3zwiR2QL066GzAJ8mAR29WwmbDEELEHGquq7JzZe+2NrtlUdtI0jKYc9ZyAIyyt7VPC8523/V7sD6bMwVvdRUksPuKh3a74dU8Ic8ljCMZEnjtTJvFCk8Xnt63grg6KK1gove+wsBamcptSkzO9/FYHfggDpfVA5PFzVrNB1FYTJ+9VwitmqsS5//wXEPyj5iWnKF9U+qdZwvIOCHW/3nIlZyCpEs3wFFO1mGhz8zrVLzs2iX5zCcvOZFwNAHqusMofFu2wOlWijOB7hsY5oVCoRhNMevuwZOVjdlIX+tDWpV6oi4dLSkfxnSax+zWdzhp0Y6h7ej9H6gj0nDq8us+hKXmEjUXLWMi3z2CBAutKzUrRpKPxD0opM82pfzf/qfcIxApdUJ91MY/WkMoF2kVIpqvAfxf0bCeO2UujrMr5cQvGqv5hMN//dwCknoX+cf7aXvesw7H2YPYrxP2sgS21/vLt3Vu0UvHtuRuUWGkENHEKmPDKNKeYwZnv9hvr4Z/pv6pCq/vSKXu0RgD0le6w+3/xdZmKPLcwNp2q0EK+5z/pGprMfmFgiCYU/nwKAvNx6iGujqvDecLwOO7i/HZB1S1wPL1/lg9wCONsyG7DnDezHAcUQLJTrEcu0P7ex9d7fBP64bAt/ht0XUO++TwjKqumZGKZzK+KLsXqBZLuopSXOS4u+dfgcXlmi5lcBBMdcZj0dvcbuFrDk4B//A1u5se7WI4uHcHSysCXcGKmz3cQtSQNDYmoYlhw0amYV2qix">
+    </div>
+    <!--导航栏-->
+    <div class="location">
+        <a href="index.aspx" class="back"><i></i><span>返回列表页</span></a>
+        <a href="/admin/home.aspx" class="home" onclick="top.linkMenuTree(false, '')"><i></i><span>首页</span></a>
+        <i class="arrow"></i>
+        <a href="index.aspx"><span>管理员</span></a>
+        <i class="arrow"></i>
+        <span>编辑管理员</span>
+    </div>
+    <div class="line10"></div>
+    <!--/导航栏-->
+    <!--内容-->
+    <div id="floatHead" class="content-tab-wrap" style="height: 42px;">
+        <div class="content-tab" style="width: 840px;">
+            <div class="content-tab-ul-wrap">
+                <div class="tab-title"><span>管理员信息</span><i></i></div>
+                <ul>
+                    <li><a class="selected" href="javascript:;">管理员信息</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-content">
+        <dl>
+            <dt>管理角色</dt>
+            <dd>
+                <div class="rule-single-select single-select">
+                    <select name="ddlRoleId" id="ddlRoleId" datatype="*" errormsg="请选择管理员角色" sucmsg=" "
+                            style="display: none;">
+                        <option selected="selected" value="">请选择角色...</option>
+                        <option value="1">超级管理员</option>
+                        <option value="2">项目经理</option>
+                        <option value="3">生产员</option>
+                        <option value="4">检查人员</option>
+                    </select>
+                </div>
+                <span class="Validform_checktip Validform_right"> </span></dd>
+        </dl>
+        <dl>
+            <dt>所在部门</dt>
+            <dd>
+                <div class="rule-single-select single-select">
+                    <select name="ddlOrganizeId" id="ddlOrganizeId" datatype="*" errormsg="请选择所在部门" sucmsg=" "
+                            style="display: none;">
+                        <option value="2">军工防务事业部</option>
+                        <option value="3">智慧民政事业部</option>
+                        <option value="4">自然资源事业部</option>
+                        <option value="5">内部控制委员会</option>
+                        <option value="6">时空大数据事业部</option>
+                        <option value="7">董事会</option>
+                        <option selected="selected" value="1">未来网络事业部</option>
+                    </select>
+                </div>
+                <span class="Validform_checktip Validform_right"> </span></dd>
+        </dl>
+        <dl>
+            <dt>是否启用</dt>
+            <dd>
+                <div class="rule-single-checkbox single-checkbox">
+                    <input id="cbIsLock" type="checkbox" name="cbIsLock" checked="checked" style="display: none;">
+                </div>
+                <span class="Validform_checktip">*不启用则无法使用该账户登录</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>账号</dt>
+            <dd>
+                <input name="txtUserName" type="text" value="" id="txtUserName"
+                       class="input normal" datatype="*1-20" sucmsg=" ">
+
+                <span class="Validform_checktip">*字母、下划线，不可修改</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>登录密码</dt>
+            <dd>
+                <input name="txtPassword" type="password" id="txtPassword" class="input normal" datatype="*6-20"
+                       nullmsg="请设置密码" errormsg="密码范围在6-20位之间" sucmsg=" " value="">
+                <span class="Validform_checktip">*</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>确认密码</dt>
+            <dd>
+                <input name="txtPassword1" type="password" id="txtPassword1" class="input normal" datatype="*"
+                       recheck="txtPassword" nullmsg="请再输入一次密码" errormsg="两次输入的密码不一致" sucmsg=" " value="">
+                <span class="Validform_checktip">*</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>姓名</dt>
+            <dd>
+                <input name="txtRealName" type="text" value="" id="txtRealName" class="input normal" datatype="*1-20"
+                       sucmsg=" ">
+            </dd>
+        </dl>
+        <dl>
+            <dt>性别</dt>
+            <dd>
+                <div class="rule-single-select single-select">
+                    <select name="txtGender" id="txtGender" datatype="*" errormsg="请选择" sucmsg=" "
+                            style="display: none;">
+                        <option selected="selected"  value="请选择">请选择</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <span class="Validform_checktip Validform_right">
+                </span>
+            </dd>
+        </dl>
+        <dl>
+            <dt>岗位</dt>
+            <dd>
+                <input name="txtPost" type="text" id="txtPost" class="input normal">
+            </dd>
+        </dl>
+        <dl>
+            <dt>电话</dt>
+            <dd>
+                <input name="txtTelephone" type="text" id="txtTelephone" class="input normal">
+            </dd>
+        </dl>
+    </div>
+    <!--/内容-->
+
+    <!--工具栏-->
+    <div class="page-footer">
+        <div class="btn-wrap" style="position: static;">
+            <input type="submit" name="btnSubmit" value="提交保存" id="btnSubmit" class="btn">
+            <input name="btnReturn" type="button" value="返回上一页" class="btn yellow"
+                   onclick="javascript: history.back(-1);">
+        </div>
+    </div>
+    <!--/工具栏-->
+</form>
+
+</body>
+</html>

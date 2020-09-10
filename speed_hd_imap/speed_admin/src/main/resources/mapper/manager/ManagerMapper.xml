@@ -92,7 +92,7 @@
     </insert>
     <select id="selectAll" resultMap="BaseResultMap">
         select m.id,m.user_name,m.password,m.role_id,m.telephone,m.status,m.real_name,m.sex,m.department,m.position,r.rid,r.role_name,r.role_type
-        from manager m,role r where m.role_id=r.rid and r.role_type &gt; #{role_type} order by m.id asc
+        from manager m,role r where m.role_id=r.rid and r.role_type &gt;= #{role_type} order by m.id asc
         <if test="department!=null">
             and m.department=#{department}
         </if>
@@ -158,7 +158,7 @@
         from manager m,role r
         <where>
             m.role_id = r.rid and
-            r.role_type &gt; #{role_type}
+            r.role_type &gt;= #{role_type}
             <if test="status != null">
                 and m.status=#{status}
             </if>

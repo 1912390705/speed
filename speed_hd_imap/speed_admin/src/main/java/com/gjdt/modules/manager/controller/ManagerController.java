@@ -1,6 +1,7 @@
 package com.gjdt.modules.manager.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.gjdt.modules.annotation.PassToken;
 import com.gjdt.modules.annotation.UserLoginToken;
@@ -13,6 +14,7 @@ import com.gjdt.modules.util.RandomValidateCode;
 import com.gjdt.modules.util.TokenUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -110,8 +112,9 @@ public class ManagerController {
      * */
     @PassToken
     @RequestMapping("/selectAll")
-    public PageInfo<Manager> selectAll(int page_index,int page_size) {
-        return  managerService.selectAll(page_index,page_size);
+    @ResponseBody
+    public PageInfo<Manager> selectAll(@RequestParam("page_index") int pageNum, @RequestParam(value = "page_size") int pageSize) {
+        return managerService.selectAll(pageNum,pageSize);
     }
 
     /*
@@ -188,7 +191,7 @@ public class ManagerController {
     }
     @RequestMapping("searchManager")
     public PageInfo<Manager> searchManager(Integer status,String department,String real_name,
-                                           @Value("${page_index:1}")int page_index,@Value("${page_size:10}")int page_size){
+                                           int page_index,int page_size){
         System.out.println(real_name);
         return managerService.searchManager(status,department,real_name,page_index,page_size);
     }

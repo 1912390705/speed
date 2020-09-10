@@ -8,13 +8,19 @@
     <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.css" th:href="@{/js/bootstrap/css/bootstrap.css}">
     <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="/css/base.css" th:href="@{/css/base.css}">
+    <link rel="stylesheet" href="/css/ui-dialog.css" th:href="@{/css/ui-dialog.css}">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <!-- 引入 初始化函数 -->
-<!--    <script type="text/javascript" data-main="/js/scripts/main.js"-->
+<!--    <script type="text/javascript" data-main="/js/scripts/userEditMain.js"-->
 <!--            src="/js/lib/require-2.3.5.js"></script>-->
 </head>
 <body id="mainBody">
-<form method="post" action="./main.index" id="form1">
+<div id="tip_container79671" class="tip_container" style="display: none; left: 800px;">
+    <div id="tip79671" class="error mtip">
+        <span id="tsc79671"></span>
+    </div>
+</div>
+<form id="form1">
     <div class="aspNetHidden">
         <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
         <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -161,11 +167,13 @@
 </form>
 </div>
 
-<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/jquery-1.11.2.min.js"></script>
 <script src="/js/bootstrap/js/bootstrap.js"></script>
 <script src="/js/scripts/common.js"></script>
 <script src="/js/scripts/laypage.js"></script>
 <script src="/js/scripts/laymain.js"></script>
+<script src="/js/scripts/dialog-plus-min.js"></script>
+
 <script th:inline="javascript">
     $(document).ready(function () {
         if (typeof window.init != "undefined") {

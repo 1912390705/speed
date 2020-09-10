@@ -272,7 +272,6 @@ $.fn.initValidform = function () {
     });
 }
 //======================以上基于Validform插件======================
-
 //智能浮动层函数
 $.fn.smartFloat = function () {
     var position = function (element) {

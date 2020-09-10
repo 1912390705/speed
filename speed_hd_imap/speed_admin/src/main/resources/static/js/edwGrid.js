@@ -694,7 +694,6 @@
 
             this._hideMessage();
             if (items && items.length !== 0 && opts.colModel) {
-
                 var tbodyHtmls = [];
                 tbodyHtmls.push('<tbody>');
                 for (var rowIndex = 0; rowIndex < items.length; rowIndex++) {
@@ -1629,8 +1628,6 @@
         };
     })();
 }(window.jQuery);
-
-
 
 /*便捷方法*/
 

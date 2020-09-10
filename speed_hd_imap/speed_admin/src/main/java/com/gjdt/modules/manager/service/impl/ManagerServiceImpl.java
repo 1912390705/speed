@@ -44,13 +44,15 @@ public class ManagerServiceImpl implements ManagerService {
     public PageInfo<Manager> selectAll(int pageNum,int pageSize) {
         Integer id  = Integer.parseInt(TokenUtil.getTokenManagerId());
         Manager manager = managerMapper.selectOneById(id);
-        PageHelper.startPage(pageNum,pageSize);
         String department = null;
         if (roleMapper.selectRole(manager.getRole_id()).getRole_type()!=1){
             department=manager.getDepartment();
         }
-        List<Manager> managers = managerMapper.selectAll(roleMapper.selectRole(manager.getRole_id()).getRole_type(),department);
-        PageInfo pageInfo = new PageInfo(managers);
+        int role_type = roleMapper.selectRole(manager.getRole_id()).getRole_type();
+        PageHelper.startPage(pageNum,pageSize);
+        List<Manager> managers = managerMapper.selectAll(role_type,department);
+        PageInfo pageInfo = PageInfo.of(managers);
+        System.out.println(pageInfo.getList().size());
         return pageInfo;
     }
 
@@ -86,8 +88,9 @@ public class ManagerServiceImpl implements ManagerService {
         if (roleMapper.selectRole(manager.getRole_id()).getRole_type()!=1){
             department=manager.getDepartment();
         }
+        int role_type = roleMapper.selectRole(manager.getRole_id()).getRole_type();
         PageHelper.startPage(pageNum,pageSize);
-        List<Manager> managers = managerMapper.searchManager(status,department,real_name,roleMapper.selectRole(manager.getRole_id()).getRole_type());
+        List<Manager> managers = managerMapper.searchManager(status,department,real_name,role_type);
         PageInfo<Manager> pageInfo = new PageInfo<>(managers);
         return pageInfo;
     }
